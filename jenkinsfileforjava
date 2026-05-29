@@ -2,38 +2,16 @@ pipeline {
     agent any
 
     stages {
-
-        stage('Clone Code') {
+        stage('Webhook Test') {
             steps {
-                git branch: 'main',
-                url: 'https://github.com/SSK-22/Jenkins-Demo.git'
+                echo 'GitHub Webhook Triggered Successfully'
             }
         }
 
-        stage('Compile Code') {
+        stage('Build') {
             steps {
-                bat 'javac Test1.java Test2.java Test3.java'
+                bat 'echo Building project...'
             }
         }
-
-        stage('Parallel Run') {
-parallel {
-stage('Run Test1') {
-steps {
-bat 'java Test1'
-}
-}
-stage('Run Test2') {
-steps {
-bat 'java Test2'
-}
-}
-stage('Run Test3') {
-steps {
-bat 'java Test3'
-}
-}
-}
-}
     }
 }
