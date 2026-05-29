@@ -16,12 +16,24 @@ pipeline {
             }
         }
 
-        stage('Run Code') {
-            steps {
-                bat 'java Test1'
+        stage('Parallel Run') {
+parallel {
+stage('Run Test1') {
+steps {
+bat 'java Test1'
+}
+}
+stage('Run Test2') {
+steps {
 bat 'java Test2'
+}
+}
+stage('Run Test3') {
+steps {
 bat 'java Test3'
-            }
-        }
+}
+}
+}
+}
     }
 }
