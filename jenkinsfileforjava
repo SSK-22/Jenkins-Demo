@@ -12,13 +12,15 @@ pipeline {
 
         stage('Compile Code') {
             steps {
-                bat 'javac demo.java'
+                bat 'javac Test1.java Test2.java Test3.java'
             }
         }
 
         stage('Run Code') {
             steps {
-                bat 'java demo'
+                bat 'java Test1'
+bat 'java Test2'
+bat 'java Test3'
             }
         }
     }
