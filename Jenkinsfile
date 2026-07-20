@@ -10,7 +10,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                bat 'echo Building project..123.'
+                sh 'echo Building project..123.'
             }
         }
     }
